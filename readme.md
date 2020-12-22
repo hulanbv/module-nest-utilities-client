@@ -1,14 +1,26 @@
+# nest-utilities-client-state
+
 <p align="center">
 An extension for <a href="https://github.com/MartinDrost/nest-utilities-client">nest-utilities-client</a>, providing an easy way to transition your HTTP services and data to a global state through React hooks.
 </p>
 
+## Installation
+
+```bash
+npm i @hulanbv/nest-utilities-client-state
+```
+
 ## Why?
 
+<p>
 Fetching data and updating user interfaces is a logic pattern we use all time time in our React apps. There are many ways of achieving a likewise pattern, think of simply fetching from `componentDidMount` or using a global state manager like Mobx or Redux. However you solve the problem, it will inevitably lead to a considerable amount of boilerplate code which has to be repeated every time data needs to be fetched -- let alone sharing data between multiple components.
-
+</p>
+<p>
 This package provides a simpler way to manage data from a server (that utilizes [nest-utilities](https://www.npmjs.com/package/nest-utilities)), for apps that use [nest-utilities-client](https://www.npmjs.com/package/nest-utilities-client).
-
+</p>
+<p>
 Using data, fetch state, errors and more can be done in a single line of code. States from identical fetch requests are shared between components, making it possible for multiple live components to draw resources from the same state. Essentially functioning as a global state manager for remote data from your API.
+</p>
 
 ## How to use & examples
 
