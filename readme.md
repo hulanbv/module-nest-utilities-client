@@ -16,7 +16,7 @@ npm i @hulanbv/nest-utilities-client-state
 Fetching data and updating user interfaces is a logic pattern we use all time time in our React apps. There are many ways of achieving a likewise pattern, think of simply fetching from `componentDidMount` or using a global state manager like Mobx or Redux. However you solve the problem, it will inevitably lead to a considerable amount of boilerplate code which has to be repeated every time data needs to be fetched -- let alone sharing data between multiple components.
 </p>
 <p>
-This package provides a simpler way to manage data from a server (that utilizes [nest-utilities](https://www.npmjs.com/package/nest-utilities)), for apps that use [nest-utilities-client](https://www.npmjs.com/package/nest-utilities-client).
+This package provides a simpler way to manage data from a server (that utilizes <a href="https://www.npmjs.com/package/nest-utilities">nest-utilities</a>), for apps that use <a href="https://www.npmjs.com/package/nest-utilities-client">nest-utilities-client</a>.
 </p>
 <p>
 Using data, fetch state, errors and more can be done in a single line of code. States from identical fetch requests are shared between components, making it possible for multiple live components to draw resources from the same state. Essentially functioning as a global state manager for remote data from your API.
@@ -36,9 +36,9 @@ The packages provides a set of pre-made hooks regarding common use cases for per
 | `usePost`   | POST          |
 | `usePut`    | PUT           |
 
-Or, for edge cases: [`useRequest`](#useRequestservice-query-method-httpOptions-stateOptions).
+Or, for edge cases: <a href="#useRequestservice-query-method-httpOptions-stateOptions">`useRequest`</a>.
 
-All these hooks return an [IRequestState](#interface-IRequestState) object. The following example implements request state properties in a practical context.
+All these hooks return an <a href="#interface-IRequestState">IRequestState</a> object. The following example implements request state properties in a practical context.
 
 #### Simple implementation
 
@@ -228,15 +228,15 @@ Use a request state for all models. Will immediately fetch on creation, unless s
 
 **Arguments**
 
-`service`: [CrudService](https://www.npmjs.com/package/nest-utilities-client)
+`service`: <a href="https://www.npmjs.com/package/nest-utilities-client">CrudService</a>
 
-`httpOptions?`: [IHttpOptions](https://www.npmjs.com/package/nest-utilities-client)
+`httpOptions?`: <a href="https://www.npmjs.com/package/nest-utilities-client">IHttpOptions</a>
 
-`stateOptions?`: [IStateOptions](#interface-IStateOptions)
+`stateOptions?`: <a href="#interface-IStateOptions">IStateOptions</a>
 
 **Returns**
 
-[IRequestState](#interface-IRequestState)
+<a href="#interface-IRequestState">IRequestState</a>
 
 **Example**
 
@@ -250,17 +250,17 @@ Use a request state for a single model, by model id. Will immediately fetch on c
 
 **Arguments**
 
-`service`: [CrudService](https://www.npmjs.com/package/nest-utilities-client)
+`service`: <a href="https://www.npmjs.com/package/nest-utilities-client">CrudService</a>
 
 `id?`: string
 
-`httpOptions?`: [IHttpOptions](https://www.npmjs.com/package/nest-utilities-client)
+`httpOptions?`: <a href="https://www.npmjs.com/package/nest-utilities-client">IHttpOptions</a>
 
-`stateOptions?`: [IStateOptions](#interface-IStateOptions)
+`stateOptions?`: <a href="#interface-IStateOptions">IStateOptions</a>
 
 **Returns**
 
-[IRequestState](#interface-IRequestState)
+<a href="#interface-IRequestState">IRequestState</a>
 
 **Example**
 
@@ -276,17 +276,17 @@ This method will _not_ be called immediately on creation, but instead needs to b
 
 **Arguments**
 
-`service`: [CrudService](https://www.npmjs.com/package/nest-utilities-client)
+`service`: <a href="https://www.npmjs.com/package/nest-utilities-client">CrudService</a>
 
 `id?`: string
 
-`httpOptions?`: [IHttpOptions](https://www.npmjs.com/package/nest-utilities-client)
+`httpOptions?`: <a href="https://www.npmjs.com/package/nest-utilities-client">IHttpOptions</a>
 
-`stateOptions?`: [IStateOptions](#interface-IStateOptions)
+`stateOptions?`: <a href="#interface-IStateOptions">IStateOptions</a>
 
 **Returns**
 
-[IRequestState](#interface-IRequestState)
+<a href="#interface-IRequestState">IRequestState</a>
 
 **Example**
 
@@ -305,17 +305,17 @@ Use a request state for a set of models, by id's. Will immediately fetch on crea
 
 **Arguments**
 
-`service`: [CrudService](https://www.npmjs.com/package/nest-utilities-client)
+`service`: <a href="https://www.npmjs.com/package/nest-utilities-client">CrudService</a>
 
 `ids`: Array\<string>
 
-`httpOptions?`: [IHttpOptions](https://www.npmjs.com/package/nest-utilities-client)
+`httpOptions?`: <a href="https://www.npmjs.com/package/nest-utilities-client">IHttpOptions</a>
 
-`stateOptions?`: [IStateOptions](#interface-IStateOptions)
+`stateOptions?`: <a href="#interface-IStateOptions">IStateOptions</a>
 
 **Returns**
 
-[IRequestState](#interface-IRequestState)
+<a href="#interface-IRequestState">IRequestState</a>
 
 **Example**
 
@@ -331,17 +331,17 @@ This method will _not_ be called immediately on creation, but instead needs to b
 
 **Arguments**
 
-`service`: [CrudService](https://www.npmjs.com/package/nest-utilities-client)
+`service`: <a href="https://www.npmjs.com/package/nest-utilities-client">CrudService</a>
 
 `id?`: string
 
-`httpOptions?`: [IHttpOptions](https://www.npmjs.com/package/nest-utilities-client)
+`httpOptions?`: <a href="https://www.npmjs.com/package/nest-utilities-client">IHttpOptions</a>
 
-`stateOptions?`: [IStateOptions](#interface-IStateOptions)
+`stateOptions?`: <a href="#interface-IStateOptions">IStateOptions</a>
 
 **Returns**
 
-[IRequestState](#interface-IRequestState)
+<a href="#interface-IRequestState">IRequestState</a>
 
 **Example**
 
@@ -362,15 +362,15 @@ Use a request state to create a model.
 
 **Arguments**
 
-`service`: [CrudService](https://www.npmjs.com/package/nest-utilities-client)
+`service`: <a href="https://www.npmjs.com/package/nest-utilities-client">CrudService</a>
 
-`httpOptions?`: [IHttpOptions](https://www.npmjs.com/package/nest-utilities-client)
+`httpOptions?`: <a href="https://www.npmjs.com/package/nest-utilities-client">IHttpOptions</a>
 
-`stateOptions?`: [IStateOptions](#interface-IStateOptions)
+`stateOptions?`: <a href="#interface-IStateOptions">IStateOptions</a>
 
 **Returns**
 
-[IRequestState](#interface-IRequestState)
+<a href="#interface-IRequestState">IRequestState</a>
 
 **Example**
 
@@ -393,17 +393,17 @@ This method will _not_ be called immediately on creation, but instead needs to b
 
 **Arguments**
 
-`service`: [CrudService](https://www.npmjs.com/package/nest-utilities-client)
+`service`: <a href="https://www.npmjs.com/package/nest-utilities-client">CrudService</a>
 
 `id?`: string
 
-`httpOptions?`: [IHttpOptions](https://www.npmjs.com/package/nest-utilities-client)
+`httpOptions?`: <a href="https://www.npmjs.com/package/nest-utilities-client">IHttpOptions</a>
 
-`stateOptions?`: [IStateOptions](#interface-IStateOptions)
+`stateOptions?`: <a href="#interface-IStateOptions">IStateOptions</a>
 
 **Returns**
 
-[IRequestState](#interface-IRequestState)
+<a href="#interface-IRequestState">IRequestState</a>
 
 **Example**
 
@@ -424,19 +424,19 @@ Use a request state.
 
 **Arguments**
 
-`service`: [CrudService](https://www.npmjs.com/package/nest-utilities-client)
+`service`: <a href="https://www.npmjs.com/package/nest-utilities-client">CrudService</a>
 
 `query?`: string
 
 `method?`: "POST" \| "GET" \| "PUT" \| "PATCH" \| "DELETE", default "GET"
 
-`httpOptions?`: [IHttpOptions](https://www.npmjs.com/package/nest-utilities-client)
+`httpOptions?`: <a href="https://www.npmjs.com/package/nest-utilities-client">IHttpOptions</a>
 
-`stateOptions?`: [IStateOptions](#interface-IStateOptions)
+`stateOptions?`: <a href="#interface-IStateOptions">IStateOptions</a>
 
 **Returns**
 
-[IRequestState](#interface-IRequestState)
+<a href="#interface-IRequestState">IRequestState</a>
 
 **Example**
 
@@ -457,14 +457,14 @@ const validate = useCallback(async () => {
 
 ### `interface IRequestState`
 
-| Property   | Type                                                                  |
-| ---------- | --------------------------------------------------------------------- |
-| cacheKey   | \<optional> string                                                    |
-| data       | \<response data> \| null                                              |
-| fetchState | [FetchState](#enum-FetchState)                                        |
-| response   | [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) |
-| service    | [CrudService](https://www.npmjs.com/package/nest-utilities-client)    |
-| call       | [IStateUpdater](#function-IStateUpdater)                              |
+| Property   | Type                                                                             |
+| ---------- | -------------------------------------------------------------------------------- |
+| cacheKey   | \<optional> string                                                               |
+| data       | \<response data> \| null                                                         |
+| fetchState | <a href="#enum-FetchState">FetchState</a>                                        |
+| response   | <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">Response</a> |
+| service    | <a href="https://www.npmjs.com/package/nest-utilities-client">CrudService</a>    |
+| call       | <a href="#function-IStateUpdater">IStateUpdater</a>                              |
 
 ### `interface IStateOptions`
 
