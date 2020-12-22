@@ -1,6 +1,6 @@
 {
   "name": "@hulanbv/nest-utilities-client-state",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React hooks for state management when using nest-utilities-client and a nest-utilities based API.",
   "main": "dist/index.js",
   "scripts": {
@@ -11,7 +11,9 @@
   },
   "author": "Stef van Wijchen",
   "license": "ISC",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "prettier": {
     "singleQuote": true,
     "tabWidth": 2
