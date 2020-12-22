@@ -11,14 +11,18 @@
   },
   "author": "Stef van Wijchen",
   "license": "ISC",
+  "files": ["dist"],
   "prettier": {
     "singleQuote": true,
     "tabWidth": 2
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run build"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "eslint"
   },
   "peerDependencies": {
     "nest-utilities-client": "^3.0.0-alpha.6",
@@ -33,6 +37,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.0",
     "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
     "nest-utilities-client": "^3.0.0-alpha.6",
     "prettier": "^2.2.1",
     "react": "^16.8.0",
