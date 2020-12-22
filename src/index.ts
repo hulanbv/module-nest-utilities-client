@@ -6,10 +6,4 @@ export { usePatch } from './hooks/usePatch';
 export { usePost } from './hooks/usePost';
 export { usePut } from './hooks/usePut';
 export { useRequest } from './hooks/core/useRequest';
-export {
-  Response,
-  IRequestState,
-  FetchMethod,
-  FetchUpdateMethod,
-  FetchState,
-} from './types';
+export * from './types';
