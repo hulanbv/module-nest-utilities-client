@@ -143,7 +143,9 @@ export function useRequest<
   useEffect(() => {
     if (!stateOptions.debug) return;
 
-    console.group(`Client state changed: ${service.controller} ${query}`);
+    console.groupCollapsed(
+      `Client state changed: ${service.controller} ${query}`
+    );
     console.log('vars', {
       service,
       query,
@@ -152,6 +154,7 @@ export function useRequest<
       stringifiedHttpOptions,
       httpOptionsHash,
       queryState,
+      _global: queryMap,
     });
     console.groupEnd();
   }, [stateOptions.debug, service, query, method, httpOptions, stateOptions]);
