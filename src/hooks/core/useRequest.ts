@@ -134,6 +134,28 @@ export function useRequest<
   const [fetchState, setFetchState] = useState(queryState.fetchState);
   const [response, setResponse] = useState(queryState.response);
 
+  // Use debug effect for changes in:
+  // service
+  // query
+  // method
+  // httpOptions
+  // stateOptions
+  useEffect(() => {
+    if (!stateOptions.debug) return;
+
+    console.group(`Client state changed: ${service.controller} ${query}`);
+    console.log('vars', {
+      service,
+      query,
+      stateOptions,
+      httpOptions,
+      stringifiedHttpOptions,
+      httpOptionsHash,
+      queryState,
+    });
+    console.groupEnd();
+  }, [stateOptions.debug, service, query, method, httpOptions, stateOptions]);
+
   // Every time `queryState` changes...
   // (hook arguments must have been changed, therefor a different RequestState was used)
   useEffect(() => {

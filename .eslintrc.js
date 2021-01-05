@@ -9,7 +9,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'prettier', 'import'],
+  plugins: ['@typescript-eslint', 'prettier', 'import', 'react-hooks'],
   rules: {
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     '@typescript-eslint/explicit-member-accessibility': [

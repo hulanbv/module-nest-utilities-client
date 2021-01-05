@@ -54,6 +54,7 @@ export interface IStateOptions {
   cache?: boolean | string;
   immediateFetch?: boolean;
   proxyMethod?: FetchMethod;
+  debug?: boolean;
 }
 
 type SimplePromise = Promise<boolean>;
