@@ -1,5 +1,6 @@
 import { CrudService, IHttpOptions } from 'nest-utilities-client';
 import { useEffect } from 'react';
+import { stringifyHttpOptions } from 'utilities/stringifyHttpOptions';
 import {
   GetServiceModel,
   IModel,
@@ -34,9 +35,11 @@ export function useById<
     stateOptions
   );
 
+  const stringifiedHttpOptions = stringifyHttpOptions(httpOptions);
+
   useEffect(() => {
     if (immediateFetch && id) call();
-  }, [id]);
+  }, [id, stringifiedHttpOptions]);
 
   return {
     data: data as Model,
