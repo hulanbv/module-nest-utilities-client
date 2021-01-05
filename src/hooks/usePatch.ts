@@ -1,6 +1,6 @@
 import { CrudService, IHttpOptions } from 'nest-utilities-client';
 import { useEffect } from 'react';
-import { stringifyHttpOptions } from 'utilities/stringifyHttpOptions';
+import { stringifyHttpOptions } from '../utilities/stringifyHttpOptions';
 import {
   GetServiceModel,
   IModel,
