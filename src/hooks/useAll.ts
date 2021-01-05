@@ -43,7 +43,7 @@ export function useAll<
     }
 
     if (immediateFetch) call();
-  }, []);
+  }, [httpOptions]);
 
   return {
     data: data as Model[],
