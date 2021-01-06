@@ -31,7 +31,7 @@ export function usePatch<
   const { data, response, call, ...rest } = useRequest(
     service,
     id,
-    'PUT',
+    'PATCH',
     httpOptions,
     {
       ...stateOptions,
