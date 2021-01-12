@@ -180,7 +180,9 @@ export class RequestState<
 
         // Set our response if it's actually a response and not anything else created by `catch`.
         this.setResponse(
-          error instanceof Response ? (error as IResponse<any>).data : null
+          error instanceof Response
+            ? { ...(error as IResponse<any>).data }
+            : null
         );
       });
 
