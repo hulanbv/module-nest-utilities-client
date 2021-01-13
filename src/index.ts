@@ -6,4 +6,5 @@ export { usePatch } from './hooks/usePatch';
 export { usePost } from './hooks/usePost';
 export { usePut } from './hooks/usePut';
 export { useRequest } from './hooks/core/useRequest';
+export { getMessageArray } from './utilities/getMessageArray';
 export * from './types';
