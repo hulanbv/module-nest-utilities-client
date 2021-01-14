@@ -179,9 +179,7 @@ export class RequestState<
         this.setData(null);
 
         // Set our response if it's actually a response and not anything else created by `catch`.
-        this.setResponse(
-          error instanceof Response ? { ...(error as IResponse<any>) } : null
-        );
+        this.setResponse(error instanceof Response ? (error as any) : null);
       });
 
       return false;
