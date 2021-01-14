@@ -134,7 +134,7 @@ export class RequestState<
 
       if (body instanceof Promise) {
         // Handle custom promise...
-        response = await this.handleCustomPromise(body);
+        response = await body;
       } else {
         // Handle every fetch method...
 
@@ -187,12 +187,6 @@ export class RequestState<
       return false;
     }
   };
-
-  private async handleCustomPromise(
-    promise: Promise<IResponse<any>>
-  ): Promise<IResponse<any>> {
-    return await promise;
-  }
 
   /**
    * Sets #response property.
