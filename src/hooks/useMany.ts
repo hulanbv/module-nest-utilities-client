@@ -23,11 +23,11 @@ export function useMany<
 >(
   service: Service,
   ids: string[] = [],
-  httpOptions: IHttpOptions<Model> = {},
+  httpOptions: IHttpOptions<GetServiceModel<Service>> = {},
   stateOptions: IStateOptions = {}
 ): IRequestState<Service, Model, Model[]> {
   const { immediateFetch = true } = stateOptions;
-  const _httpOptions: IHttpOptions<Model> = {
+  const _httpOptions: IHttpOptions<GetServiceModel<Service>> = {
     ...httpOptions,
     filter: {
       ...httpOptions?.filter,

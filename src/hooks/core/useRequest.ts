@@ -49,7 +49,7 @@ export function useRequest<
   service: Service,
   query?: string,
   method: FetchMethod = 'GET',
-  httpOptions: IHttpOptions<Model> = {},
+  httpOptions: IHttpOptions<GetServiceModel<Service>> = {},
   stateOptions: IStateOptions = {}
 ): IRequestState<Service, Model> {
   // Extract request options

@@ -23,7 +23,7 @@ export function usePut<
 >(
   service: Service,
   id?: string,
-  httpOptions?: IHttpOptions<Model>,
+  httpOptions?: IHttpOptions<GetServiceModel<Service>>,
   stateOptions: IStateOptions = {}
 ): IRequestState<Service, Model, Model> {
   const { immediateFetch = true } = stateOptions;

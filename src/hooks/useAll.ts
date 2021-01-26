@@ -21,7 +21,7 @@ export function useAll<
   Model extends IModel = GetServiceModel<Service>
 >(
   service: Service,
-  httpOptions: IHttpOptions<Model> = {},
+  httpOptions: IHttpOptions<GetServiceModel<Service>> = {},
   stateOptions: IStateOptions = {}
 ): IRequestState<Service, Model, Model[]> {
   const { immediateFetch = true } = stateOptions;

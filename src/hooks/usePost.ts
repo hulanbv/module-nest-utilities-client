@@ -18,7 +18,7 @@ export function usePost<
   Model extends IModel = GetServiceModel<Service>
 >(
   service: Service,
-  httpOptions: IHttpOptions<Model> = {},
+  httpOptions: IHttpOptions<GetServiceModel<Service>> = {},
   stateOptions: IStateOptions = {}
 ): IRequestState<Service, Model, Model> {
   const { data, response, call, ...rest } = useRequest(
