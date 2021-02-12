@@ -29,10 +29,15 @@ export function useMany<
   const { immediateFetch = true } = stateOptions;
   const _httpOptions: IHttpOptions<GetServiceModel<Service>> = {
     ...httpOptions,
-    filter: {
-      ...httpOptions?.filter,
+    match: {
+      ...httpOptions?.match,
       _id: { $in: ids },
     },
+    // nest-utilities-client 3.0.0
+    // filter: {
+    //   ...httpOptions?.filter,
+    //   _id: { $in: ids },
+    // },
   };
 
   const { data, response, call, ...rest } = useRequest(

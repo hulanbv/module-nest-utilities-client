@@ -51,10 +51,16 @@ export type GetSingleModel<
 
 /* Hook types */
 export interface IStateOptions {
+  /** Cache with generated or speficic key */
   cache?: boolean | string;
+  /** Fetch immediately on hook creation */
   immediateFetch?: boolean;
+  /** Proxy method */
   proxyMethod?: FetchMethod;
+  /** Log request state info */
   debug?: boolean;
+  /** Request payload body property to append the given query to */
+  appendQuery?: string;
 }
 
 type SimplePromise = Promise<boolean>;

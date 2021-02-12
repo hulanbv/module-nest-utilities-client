@@ -45,7 +45,10 @@ export class RequestState<
      * If a `string` is passed, it will use this as key name.
      * Otherwise a hash is created from other parameters.
      * */
-    private cache: boolean | string = false
+    private cache: boolean | string = false,
+
+    /** Request payload body property to append the given query to */
+    private appendQuery?: string
   ) {
     if (cache) {
       // Create a hash from constructor parameters.
@@ -136,6 +139,11 @@ export class RequestState<
         // Handle custom promise...
         response = await body;
       } else {
+        // Append query to body
+        if (this.appendQuery) {
+          if (body instanceof FormData) body.set(this.appendQuery, this.query);
+          if (body) (body as any)[this.appendQuery] = this.query;
+        }
         // Handle every fetch method...
 
         if (method === 'GET') {

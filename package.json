@@ -27,7 +27,7 @@
     "*.{js,ts,tsx}": "eslint"
   },
   "peerDependencies": {
-    "nest-utilities-client": "^3.0.0",
+    "nest-utilities-client": "^3.1.0",
     "react": "^16.8.0"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
-    "nest-utilities-client": "^3.0.0",
+    "nest-utilities-client": "^3.1.0",
     "prettier": "^2.2.1",
     "react": "^16.8.0",
     "typescript": "^4.1.3"
