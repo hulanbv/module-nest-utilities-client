@@ -53,7 +53,7 @@ export function useRequest<
   stateOptions: IStateOptions = {}
 ): IRequestState<Service, Model> {
   // Extract request options
-  const { proxyMethod, cache = false } = stateOptions;
+  const { appendQuery, proxyMethod, cache = false } = stateOptions;
 
   // Create a shadow variable for `cache` so its value won't change.
   const _cache = useRef(cache);
@@ -93,7 +93,8 @@ export function useRequest<
         query,
         httpOptions,
         proxyMethod,
-        _cache.current
+        _cache.current,
+        appendQuery
       ),
     // We do not need httpOptions as a dependency, because we know `httpOptionsHash` will change every time http options change.
     // eslint-disable-next-line react-hooks/exhaustive-deps
