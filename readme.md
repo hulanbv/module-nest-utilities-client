@@ -222,6 +222,8 @@ function App() {
 
 ## API reference
 
+`usePut`, `usePatch` and `useDelete` hooks will execute a proxy GET request, to get initial data to work with. So you won't have to create two hooks (for example useById + usePut) when you would want to fetch and edit data.
+
 ### `useAll(service, httpOptions, stateOptions)`
 
 Use a request state for all models. Will immediately fetch on creation, unless set otherwise in `stateOptions`.
