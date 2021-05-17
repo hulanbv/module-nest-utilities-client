@@ -51,6 +51,8 @@ export type GetSingleModel<
 
 /* Hook types */
 export interface IStateOptions {
+  /** Create a distinct state e.g. do *not* use matching existing state */
+  distinct?: boolean;
   /** Cache with generated or speficic key */
   cache?: boolean | string;
   /** Fetch immediately on hook creation */

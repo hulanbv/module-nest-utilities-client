@@ -472,9 +472,12 @@ const validate = useCallback(async () => {
 
 | Property       | Type                                            |
 | -------------- | ----------------------------------------------- |
+| distinct       | \<optional> boolean                             |
 | cache          | \<optional> string \| boolean                   |
 | immediateFetch | \<optional> boolean                             |
 | proxyMethod    | "POST" \| "GET" \| "PUT" \| "PATCH" \| "DELETE" |
+| debug          | \<optional> boolean                             |
+| appendQuery    | \<optional> string                              |
 
 ### `enum FetchState`
 

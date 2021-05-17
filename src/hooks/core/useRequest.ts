@@ -16,6 +16,7 @@ const queryMap: QueryMap = new Map();
 
 let postStates = 0;
 let deleteStates = 0;
+let distinctStates = 0;
 
 /**
  * Returns a unique method id for POST and DELETE requests.
@@ -31,6 +32,10 @@ function createUniqueMethodId(method: FetchMethod): number | null {
     case 'PATCH':
       return null;
   }
+}
+
+function createDistintId(): number {
+  return distinctStates++;
 }
 
 /**
@@ -53,13 +58,21 @@ export function useRequest<
   stateOptions: IStateOptions = {}
 ): IRequestState<Service, Model> {
   // Extract request options
-  const { appendQuery, proxyMethod, cache = false } = stateOptions;
+  const {
+    appendQuery,
+    proxyMethod,
+    cache = false,
+    distinct = false,
+  } = stateOptions;
 
-  // Create a shadow variable for `cache` so its value won't change.
-  const _cache = useRef(cache);
+  // Create a static cache key
+  const cacheKey = useRef(cache);
 
-  // Create a unique id for the given method.
+  // Create a static method id for the given method.
   const methodId = useRef(createUniqueMethodId(method));
+
+  // Create a static distinct id when state should be distinct.
+  const distinctId = useRef(distinct ? createDistintId() : null);
 
   // Create a state hash string.
   const stateHash = useMemo(
@@ -67,9 +80,10 @@ export function useRequest<
       hash(
         [
           service.controller,
-          _cache.current.toString(),
+          cacheKey.current.toString(),
           method,
           query || methodId.current,
+          distinctId.current,
         ]
           .filter(Boolean)
           .join('')
@@ -93,7 +107,7 @@ export function useRequest<
         query,
         httpOptions,
         proxyMethod,
-        _cache.current,
+        cacheKey.current,
         appendQuery
       ),
     // We do not need httpOptions as a dependency, because we know `httpOptionsHash` will change every time http options change.
