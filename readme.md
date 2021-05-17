@@ -22,6 +22,13 @@ This package provides a simpler way to manage data from a server (that utilizes 
 Using data, fetch state, errors and more can be done in a single line of code. States from identical fetch requests are shared between components, making it possible for multiple live components to draw resources from the same state. Essentially functioning as a global state manager for remote data from your API.
 </p>
 
+## How does it work?
+NUCS keeps a live state for every unique request hook you use. A request's uniqueness is determined by i.a. it's NUC service, endpoint and http options.
+
+For example, if you wanted to use a request state for fetching all users with name "Alex", you would use `useAll(userService, { filter: { name: { $eq: "Alex" }}})`. 
+
+The request state's defining properties are `userService`, and query `name=Alex`. Under the hood, those properties are used to generate an identifier for this particular request state. If you were to implement another request hook with those exact same parameters, the already created request state will be used, because their identifiers are equal. Therefor that state could be shared by multiple components and/or compositions and their respectable states and views will be synchronized.
+
 ## How to use & examples
 
 The packages provides a set of pre-made hooks regarding common use cases for persistant data (e.g. CRUD functions).
