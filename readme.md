@@ -464,7 +464,31 @@ const validate = useCallback(async () => {
 }, [service]);
 ```
 
-Note that when directly calling `useRequest`, the `immediateFetch` option is ignored, so you will have to manually invoke the returned state's `call` method if you want to immediately fetch on creation.
+Note that when invoking `useRequest`, no immediate fetch takes place. The `immediateFetch` option is _ignored_, so you will have to manually invoke the created state's `call` method if you want to immediately fetch on creation.
+
+```typescript
+function useSomeData() {
+  const { data, call } = useRequest(service, 'query', 'GET');
+
+  // manual immediate fetch
+  useEffect(() => void call(), []);
+
+  return data
+}
+
+// or, a more common scenario with an optional query parameter
+
+function useSomeData(id?: string) {
+  const { data, call } = useRequest(service, id, 'GET');
+
+  // manual immediate fetch, but only if `id` is defined
+  useEffect(() => {
+    if (id) call();
+  }, [id]);
+
+  return data
+}
+```
 
 ### `interface IRequestState`
 
