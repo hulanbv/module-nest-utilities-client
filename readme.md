@@ -464,6 +464,8 @@ const validate = useCallback(async () => {
 }, [service]);
 ```
 
+Note that when directly calling `useRequest`, the `immediateFetch` option is ignored, so you will have to manually invoke the returned state's `call` method if you want to immediately fetch on creation.
+
 ### `interface IRequestState`
 
 | Property   | Type                                                                             |
