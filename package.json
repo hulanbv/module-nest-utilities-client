@@ -27,24 +27,24 @@
     "*.{js,ts,tsx}": "eslint"
   },
   "peerDependencies": {
-    "nest-utilities-client": "^3.1.0",
-    "react": "^16.8.0"
+    "nest-utilities-client": ">=3.1.0",
+    "react": ">=16.8.0"
   },
   "devDependencies": {
-    "@types/react": "^16.8.0",
-    "@typescript-eslint/eslint-plugin": "^4.10.0",
-    "@typescript-eslint/parser": "^4.10.0",
-    "eslint": "^7.16.0",
-    "eslint-config-prettier": "^7.1.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.3.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^4.3.6",
-    "lint-staged": "^10.5.3",
-    "nest-utilities-client": "^3.1.0",
-    "prettier": "^2.2.1",
-    "react": "^16.8.0",
-    "typescript": "^4.1.3"
+    "@types/react": "16.8.0",
+    "@typescript-eslint/eslint-plugin": "4.10.0",
+    "@typescript-eslint/parser": "4.10.0",
+    "eslint": "7.16.0",
+    "eslint-config-prettier": "7.1.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-prettier": "3.3.0",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "husky": "4.3.6",
+    "lint-staged": "10.5.3",
+    "nest-utilities-client": "3.1.0",
+    "prettier": "2.2.1",
+    "react": "16.8.0",
+    "typescript": "4.1.3"
   },
   "dependencies": {}
 }
