@@ -17,7 +17,7 @@ export class RequestState<
   Service extends CrudService<IModel>,
   Model extends IModel = GetServiceModel<Service>
 > {
-  private static cacheKeyNamePrefix = 'nest-utilities-client-hooks';
+  static readonly cacheKeyNamePrefix = 'nest-utilities-client-hooks';
 
   #changeHandlers: ((queryState: this) => void)[] = [];
   #fetchState: FetchState = FetchState.Idle;

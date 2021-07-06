@@ -50,13 +50,30 @@ export type GetSingleModel<
 > = From extends IModel[] ? GetArrayType<From> : IModel;
 
 /* Hook types */
+export enum FetchTiming {
+  /**
+   * Fetches the data immediately after initiating the hook
+   */
+  IMMEDIATE,
+
+  /**
+   * Fetches the data when the call method is called
+   */
+  ON_CALL,
+
+  /**
+   * Fetches the data immediately after initiating the hook only when the data is empty.
+   * The data could be hydrated via various sources including the cache option.
+   */
+  WHEN_EMPTY,
+}
 export interface IStateOptions {
   /** Create a distinct state e.g. do *not* use matching existing state */
   distinct?: boolean;
   /** Cache with generated or speficic key */
   cache?: boolean | string;
   /** Fetch immediately on hook creation */
-  immediateFetch?: boolean;
+  fetchTiming?: FetchTiming;
   /** Proxy method */
   proxyMethod?: FetchMethod;
   /** Log request state info */

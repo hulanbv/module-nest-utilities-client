@@ -1,10 +1,11 @@
+export { useRequest } from './hooks/core/useRequest';
 export { useAll } from './hooks/useAll';
-export { useDelete } from './hooks/useDelete';
 export { useById } from './hooks/useById';
+export { useDelete } from './hooks/useDelete';
 export { useMany } from './hooks/useMany';
 export { usePatch } from './hooks/usePatch';
 export { usePost } from './hooks/usePost';
 export { usePut } from './hooks/usePut';
-export { useRequest } from './hooks/core/useRequest';
-export { getMessageArray } from './utilities/getMessageArray';
 export * from './types';
+export { clearCache } from './utilities/clear-cache';
+export { getMessageArray } from './utilities/getMessageArray';

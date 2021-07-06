@@ -1,13 +1,14 @@
 import { CrudService, IHttpOptions } from 'nest-utilities-client';
 import { useEffect } from 'react';
-import { stringifyHttpOptions } from '../utilities/stringifyHttpOptions';
 import {
+  FetchTiming,
   GetServiceModel,
   IModel,
-  IStateOptions,
   IRequestState,
+  IStateOptions,
   Response,
 } from '../types';
+import { stringifyHttpOptions } from '../utilities/stringifyHttpOptions';
 import { useRequest } from './core/useRequest';
 
 /**
@@ -15,7 +16,8 @@ import { useRequest } from './core/useRequest';
  * @param service
  * @param ids
  * @param httpOptions
- * @param immediateFetch fetch models on initialization -- default true
+ * @param stateOptions
+ * @returns
  */
 export function useMany<
   Service extends CrudService<IModel>,
@@ -26,18 +28,13 @@ export function useMany<
   httpOptions: IHttpOptions<GetServiceModel<Service>> = {},
   stateOptions: IStateOptions = {}
 ): IRequestState<Service, Model, Model[]> {
-  const { immediateFetch = true } = stateOptions;
+  const { fetchTiming = FetchTiming.IMMEDIATE } = stateOptions;
   const _httpOptions: IHttpOptions<GetServiceModel<Service>> = {
     ...httpOptions,
     match: {
       ...httpOptions?.match,
       _id: { $in: ids },
     },
-    // nest-utilities-client 3.0.0
-    // filter: {
-    //   ...httpOptions?.filter,
-    //   _id: { $in: ids },
-    // },
   };
 
   const { data, response, call, ...rest } = useRequest(
@@ -51,7 +48,13 @@ export function useMany<
   const stringifiedHttpOptions = stringifyHttpOptions(_httpOptions);
 
   useEffect(() => {
-    if (immediateFetch && ids.length > 0) call();
+    if (
+      ids.length > 0 &&
+      (fetchTiming === FetchTiming.IMMEDIATE ||
+        (fetchTiming === FetchTiming.WHEN_EMPTY && !data))
+    ) {
+      call();
+    }
   }, [stringifiedHttpOptions]);
 
   return {

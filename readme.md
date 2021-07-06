@@ -23,9 +23,10 @@ Using data, fetch state, errors and more can be done in a single line of code. S
 </p>
 
 ## How does it work?
+
 NUCS keeps a live state for every unique request hook you use. A request's uniqueness is determined by i.a. it's NUC service, endpoint and http options.
 
-For example, if you wanted to use a request state for fetching all users with name "Alex", you would use `useAll(userService, { filter: { name: { $eq: "Alex" }}})`. 
+For example, if you wanted to use a request state for fetching all users with name "Alex", you would use `useAll(userService, { filter: { name: { $eq: "Alex" }}})`.
 
 The request state's defining properties are `userService`, and query `name=Alex`. Under the hood, those properties are used to generate an identifier for this particular request state. If you were to implement another request hook with those exact same parameters, the already created request state will be used, because their identifiers are equal. Therefor that state could be shared by multiple components and/or compositions and their respectable states and views will be synchronized.
 
@@ -464,7 +465,7 @@ const validate = useCallback(async () => {
 }, [service]);
 ```
 
-Note that when invoking `useRequest`, no immediate fetch takes place. The `immediateFetch` option is _ignored_, so you will have to manually invoke the created state's `call` method if you want to immediately fetch on creation.
+Note that when invoking `useRequest`, no immediate fetch takes place. The `fetchTiming` option is _ignored_, so you will have to manually invoke the created state's `call` method if you want to immediately fetch on creation.
 
 ```typescript
 function useSomeData() {
@@ -473,7 +474,7 @@ function useSomeData() {
   // manual immediate fetch
   useEffect(() => void call(), []);
 
-  return data
+  return data;
 }
 
 // or, a more common scenario with an optional query parameter
@@ -486,7 +487,7 @@ function useSomeData(id?: string) {
     if (id) call();
   }, [id]);
 
-  return data
+  return data;
 }
 ```
 
@@ -503,14 +504,14 @@ function useSomeData(id?: string) {
 
 ### `interface IStateOptions`
 
-| Property       | Type                                            |
-| -------------- | ----------------------------------------------- |
-| distinct       | \<optional> boolean                             |
-| cache          | \<optional> string \| boolean                   |
-| immediateFetch | \<optional> boolean                             |
-| proxyMethod    | "POST" \| "GET" \| "PUT" \| "PATCH" \| "DELETE" |
-| debug          | \<optional> boolean                             |
-| appendQuery    | \<optional> string                              |
+| Property    | Type                                                                                               |
+| ----------- | -------------------------------------------------------------------------------------------------- |
+| distinct    | \<optional> boolean                                                                                |
+| cache       | \<optional> string \| boolean                                                                      |
+| fetchTiming | \<optional> `FetchTiming.IMMEDIATE` (default) \| `FetchTiming.ON_CALL` \| `FetchTiming.WHEN_EMPTY` |
+| proxyMethod | "POST" \| "GET" \| "PUT" \| "PATCH" \| "DELETE"                                                    |
+| debug       | \<optional> boolean                                                                                |
+| appendQuery | \<optional> string                                                                                 |
 
 ### `enum FetchState`
 

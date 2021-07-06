@@ -1,20 +1,22 @@
 import { CrudService, IHttpOptions } from 'nest-utilities-client';
 import { useEffect } from 'react';
-import { stringifyHttpOptions } from '../utilities/stringifyHttpOptions';
 import {
+  FetchTiming,
   GetServiceModel,
   IModel,
-  IStateOptions,
   IRequestState,
+  IStateOptions,
   Response,
 } from '../types';
+import { stringifyHttpOptions } from '../utilities/stringifyHttpOptions';
 import { useRequest } from './core/useRequest';
 
 /**
  * Use all models
  * @param service
  * @param httpOptions
- * @param immediateFetch fetch the model by id on initialization -- default true
+ * @param stateOptions
+ * @returns
  */
 export function useAll<
   Service extends CrudService<IModel>,
@@ -24,7 +26,7 @@ export function useAll<
   httpOptions: IHttpOptions<GetServiceModel<Service>> = {},
   stateOptions: IStateOptions = {}
 ): IRequestState<Service, Model, Model[]> {
-  const { immediateFetch = true } = stateOptions;
+  const { fetchTiming = FetchTiming.IMMEDIATE } = stateOptions;
   const { data, response, call, ...rest } = useRequest(
     service,
     '',
@@ -45,7 +47,11 @@ export function useAll<
       );
     }
 
-    if (immediateFetch) call();
+    if (
+      fetchTiming === FetchTiming.IMMEDIATE ||
+      (fetchTiming === FetchTiming.WHEN_EMPTY && !data)
+    )
+      call();
   }, [stringifiedHttpOptions]);
 
   return {

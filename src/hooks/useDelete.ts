@@ -1,10 +1,11 @@
 import { CrudService, IHttpOptions } from 'nest-utilities-client';
 import { useEffect } from 'react';
 import {
+  FetchTiming,
   GetServiceModel,
   IModel,
-  IStateOptions,
   IRequestState,
+  IStateOptions,
   Response,
 } from '../types';
 import { useRequest } from './core/useRequest';
@@ -14,7 +15,8 @@ import { useRequest } from './core/useRequest';
  * @param service
  * @param id
  * @param httpOptions
- * @param immediateFetch fetch the model by id on initialization -- default true
+ * @param stateOptions
+ * @returns
  */
 export function useDelete<
   Service extends CrudService<IModel>,
@@ -25,7 +27,7 @@ export function useDelete<
   httpOptions: IHttpOptions<GetServiceModel<Service>> = {},
   stateOptions: IStateOptions = {}
 ): IRequestState<Service, Model, Model> {
-  const { immediateFetch = true } = stateOptions;
+  const { fetchTiming = FetchTiming.IMMEDIATE } = stateOptions;
   const { data, response, call, ...rest } = useRequest(
     service,
     id,
@@ -38,7 +40,13 @@ export function useDelete<
   );
 
   useEffect(() => {
-    if (immediateFetch && !!id) call(null, true);
+    if (
+      !!id &&
+      (fetchTiming === FetchTiming.IMMEDIATE ||
+        (fetchTiming === FetchTiming.WHEN_EMPTY && !data))
+    ) {
+      call(null, true);
+    }
   }, []);
 
   return {

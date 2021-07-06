@@ -1,16 +1,16 @@
 import { CrudService, IHttpOptions } from 'nest-utilities-client';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import {
-  IModel,
-  FetchMethod,
-  GetServiceModel,
-  IStateOptions,
-  IRequestState,
-  QueryMap,
-} from './../../types';
 import { hash } from '../../utilities/hash';
 import { RequestState } from '../../utilities/RequestState';
 import { stringifyHttpOptions } from '../../utilities/stringifyHttpOptions';
+import {
+  FetchMethod,
+  GetServiceModel,
+  IModel,
+  IRequestState,
+  IStateOptions,
+  QueryMap,
+} from './../../types';
 
 const queryMap: QueryMap = new Map();
 
@@ -34,7 +34,7 @@ function createUniqueMethodId(method: FetchMethod): number | null {
   }
 }
 
-function createDistintId(): number {
+function createDistinctId(): number {
   return distinctStates++;
 }
 
@@ -72,7 +72,7 @@ export function useRequest<
   const methodId = useRef(createUniqueMethodId(method));
 
   // Create a static distinct id when state should be distinct.
-  const distinctId = useRef(distinct ? createDistintId() : null);
+  const distinctId = useRef(distinct ? createDistinctId() : null);
 
   // Create a state hash string.
   const stateHash = useMemo(
